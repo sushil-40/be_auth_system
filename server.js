@@ -6,16 +6,26 @@ const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(cors());
-
 app.use(express.json());
-dbConnect();
+
+//api endpoints
+import authRoute from "./src/routes/authRoute.js";
+app.use("/api/v1/auth", authRoute);
+
 app.get("/", (req, res) => {
   res.json({
     message: "Hello from server!",
   });
 });
-app.listen(PORT, (error) => {
-  error
-    ? console.log(error)
-    : console.log(`Your server is running at http://localhost:${PORT}`);
-});
+
+dbConnect()
+  .then(() => {
+    app.listen(PORT, (error) => {
+      error
+        ? console.log(error)
+        : console.log(`Your server is running at http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });

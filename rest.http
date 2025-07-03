@@ -5,3 +5,7 @@
 ### Check server status
 
 GET {{rootUrl}}
+
+### insert new USER
+
+POST {{rootUrl}}/api/v1/auth/register
