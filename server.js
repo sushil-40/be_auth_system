@@ -10,8 +10,10 @@ app.use(express.json());
 
 //api endpoints
 import authRoute from "./src/routes/authRoute.js";
+import { errorHandler } from "./src/middleware/errorHandler.js";
 app.use("/api/v1/auth", authRoute);
 
+app.use(errorHandler);
 app.get("/", (req, res) => {
   res.json({
     message: "Hello from server!",
