@@ -12,8 +12,8 @@ POST {{rootUrl}}/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "fName":"Zarina",
-    "lName":"Khan",
-    "email":"b@acb.com",
+    "fName":"Ram",
+    "lName":"Sita",
+    "email":"k@zv.com",
     "password":"123"
 }
