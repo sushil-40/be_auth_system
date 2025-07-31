@@ -84,12 +84,13 @@ export const activateUser = async (req, res, next) => {
         userActivatedNotificationEmail({ email: user.email, name: user.fName });
         //send email notification
         const message = "Your account has been activated you may log in now!";
+        return responseClient({ req, res, message });
       }
     }
     const message = "Invalid link or token expired !";
 
     const statusCode = 400;
-    responseClient({ req, res, message, statusCode });
+    return responseClient({ req, res, message, statusCode });
   } catch (error) {
     next(error);
   }
