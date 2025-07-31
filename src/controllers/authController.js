@@ -1,7 +1,13 @@
 import { responseClient } from "../middleware/responseClient.js";
-import { createNewSession } from "../models/session/SessionModel.js";
-import { createNewUser } from "../models/user/UserModel.js";
-import { userActivationUrlEmail } from "../services/email/emailService.js";
+import {
+  createNewSession,
+  deleteSession,
+} from "../models/session/SessionModel.js";
+import { createNewUser, updateUser } from "../models/user/UserModel.js";
+import {
+  userActivatedNotificationEmail,
+  userActivationUrlEmail,
+} from "../services/email/emailService.js";
 import { hashPassword } from "../utils/bcrypt.js";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,7 +17,9 @@ export const insertNewUser = async (req, res, next) => {
 
     //recieve the user data
     //encrpty the password
+    console.log(req);
     const { password } = req.body;
+    console.log("*********", req.body);
     req.body.password = hashPassword(password);
 
     //insert into DB
@@ -51,6 +59,38 @@ export const insertNewUser = async (req, res, next) => {
       error.statusCode = 400;
     }
 
+    next(error);
+  }
+};
+
+export const activateUser = async (req, res, next) => {
+  try {
+    const { sessionId, t } = req.body;
+    console.log(sessionId, t);
+
+    const session = await deleteSession({
+      _id: sessionId,
+      token: t,
+    });
+    if (session?._id) {
+      // update user to active
+      const user = await updateUser(
+        { email: session.association },
+        { status: "active" }
+      );
+      // if it is updated
+      if (user?._id) {
+        //respond to front-end
+        userActivatedNotificationEmail({ email: user.email, name: user.fName });
+        //send email notification
+        const message = "Your account has been activated you may log in now!";
+      }
+    }
+    const message = "Invalid link or token expired !";
+
+    const statusCode = 400;
+    responseClient({ req, res, message, statusCode });
+  } catch (error) {
     next(error);
   }
 };

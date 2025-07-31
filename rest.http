@@ -12,8 +12,18 @@ POST {{rootUrl}}/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "fName":"Ram",
-    "lName":"Sita",
-    "email":"hanuman@laxman12345.com",
-    "password":"123"
+    "fName":"b",
+    "lName":"b",
+    "email":"b@b.com",
+    "password":"Aa123#"
+}
+
+### post to activate  USER
+
+POST {{rootUrl}}/api/v1/auth/activate-user
+Content-Type: application/json
+
+{
+"sessionId":"688ab12c520d4cbc52205eb4",
+ "t":"ad7406d1-d7ae-4161-b498-70b1bb516cbf"
 }
