@@ -12,9 +12,9 @@ POST {{rootUrl}}/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "fName":"b",
-    "lName":"b",
-    "email":"b@b.com",
+    "fName":"bbbbb",
+    "lName":"bbbbb",
+    "email":"b@bc.com",
     "password":"Aa123#"
 }
 
@@ -24,6 +24,6 @@ POST {{rootUrl}}/api/v1/auth/activate-user
 Content-Type: application/json
 
 {
-"sessionId":"688ab12c520d4cbc52205eb4",
- "t":"ad7406d1-d7ae-4161-b498-70b1bb516cbf"
+"sessionId":"688bf7461f719842927ca28b",
+ "t":"ea137a9c-1d94-41a0-ad06-289691d6404a"
 }
