@@ -14,7 +14,7 @@ Content-Type: application/json
 {
     "fName":"bbbbb",
     "lName":"bbbbb",
-    "email":"b@bc.com",
+    "email":"z@z.com",
     "password":"Aa123#"
 }
 
@@ -26,4 +26,14 @@ Content-Type: application/json
 {
 "sessionId":"688bf7461f719842927ca28b",
  "t":"ea137a9c-1d94-41a0-ad06-289691d6404a"
+}
+
+### login user
+
+POST {{rootUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email":"z@z.com",
+    "password":"Aa123#"
 }
