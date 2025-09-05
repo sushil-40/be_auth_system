@@ -34,6 +34,17 @@ POST {{rootUrl}}/api/v1/auth/login
 Content-Type: application/json
 
 {
+  "email":"n@n.com",
+    "password":"Abc@123"
+}
+
+
+
+### get user profile
+
+GET  {{rootUrl}}/api/v1/users/profile
+
+{
   "email":"z@z.com",
     "password":"Aa123#"
 }

@@ -12,7 +12,10 @@ app.use(express.json());
 import authRoute from "./src/routes/authRoute.js";
 import { errorHandler } from "./src/middleware/errorHandler.js";
 import { responseClient } from "./src/middleware/responseClient.js";
+import usersRoute from "./src/routes/usersRoute.js";
 app.use("/api/v1/auth", authRoute);
+
+app.use("/api/v1/users", usersRoute);
 
 app.use(errorHandler);
 app.get("/", (req, res) => {
