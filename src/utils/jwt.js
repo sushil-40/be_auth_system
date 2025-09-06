@@ -29,7 +29,7 @@ export const createRefreshJWT = async (email) => {
     expiresIn: "30d",
   });
   //store
-  const user = await updateUser(email, { refreshJWT });
+  const user = await updateUser({ email }, { refreshJWT });
   return user?._id ? refreshJWT : null;
 };
 
