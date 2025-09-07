@@ -21,6 +21,14 @@ export const createAccessJWT = async (email) => {
   return newSessions?._id ? token : null;
 };
 //decode accessJWT
+export const verifyAccessJWT = (token) => {
+  try {
+    const decoded = jwt.verify(token, process.env.ACCESSJWT_SECRET);
+    return decoded;
+  } catch (error) {
+    return error.message;
+  }
+};
 
 //generate refreshJWT
 export const createRefreshJWT = async (email) => {
