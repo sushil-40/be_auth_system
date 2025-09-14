@@ -43,4 +43,4 @@ Content-Type: application/json
 ### get user profile
 
 GET  {{rootUrl}}/api/v1/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5Abi5jb20iLCJpYXQiOjE3NTcyNDE4NTQsImV4cCI6MTc1NzI0Mjc1NH0.FAAccd4DCyL43uLs4350hEei2Hb6UcypSundCnc5rtE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5Abi5jb20iLCJpYXQiOjE3NTc4NDIwOTUsImV4cCI6MTc1Nzg0Mjk5NX0.xIs5NIgO_Pq5wBlUg3bVihMsdEVrAaWisIadZDhIHqY
