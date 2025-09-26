@@ -138,3 +138,21 @@ export const loginUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getProfile = (req, res, next) => {
+  try {
+    const user = req.userInfo;
+    user.password = undefined;
+    user.__v = undefined;
+    user.refreshJWT = undefined;
+
+    return responseClient({
+      req,
+      res,
+      message: "User profile fetched successfully",
+      payload: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
